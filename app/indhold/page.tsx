@@ -386,7 +386,7 @@ export default function IndholdPage() {
                       ? 'bg-emerald-900/30 font-semibold text-emerald-400' 
                       : 'text-gray-400'
                   }`}>
-                    Kvartalsvis
+                    -
                   </td>
                   <td className={`px-6 py-4 text-center ${
                     selectedPlan === 'pro' 

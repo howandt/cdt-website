@@ -19,7 +19,7 @@ export default function OmCDTPage() {
           <div className="bg-gray-800 rounded-xl p-8">
             <h2 className="text-3xl font-bold text-emerald-400 mb-4">Vores Mission</h2>
             <p className="text-gray-300 leading-relaxed mb-4">
-              CDT (Competence Development & Training) er udviklet som en del af CDA økosystemet med ét klart formål: 
+              CDT (Child Diagnosis Tutor) er verdens første interaktive levende fagbog, udviklet som en del af CDA økosystemet med ét klart formål: 
               At give professionelle og forældre de værktøjer og den viden, de har brug for til at støtte børn med 
               diagnoser på den bedst mulige måde.
             </p>
@@ -67,8 +67,6 @@ export default function OmCDTPage() {
                   Praktiske strategier til hverdagen
                 </li>
                 <li className="flex items-start">
-                  <span className="text-teal-500 mr-2">•</span>
-                  Adgang til KOMO værktøjer
                 </li>
                 <li className="flex items-start">
                   <span className="text-teal-500 mr-2">•</span>
