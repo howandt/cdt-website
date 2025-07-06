@@ -47,7 +47,7 @@ export default function Features() {
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <h3 className="text-xl font-bold text-emerald-400 mb-3">👩‍⚕️ Specialist Panel</h3>
+              <h3 className="text-xl font-bold text-emerald-400 mb-3">👩‍⚕️ AI-Specialist Panel</h3>
               <p className="text-gray-300">
                 Direkte adgang til rigtige eksperter når du har brug for dybere vejledning.
               </p>

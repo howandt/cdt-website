@@ -126,6 +126,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
+        {/* Disclaimer */}
+<div className="border-t border-gray-700 mt-8 pt-6">
+  <p className="text-gray-400 text-sm text-center max-w-4xl mx-auto">
+    CDT stiller ikke diagnoser og ordinerer ikke medicin. Ved behov henvises til menneskelig specialist.
+  </p>
+</div>
         <div className="border-t border-gray-700 mt-8 pt-6 text-center">
           <p className="text-gray-400 text-sm">
             Alle rettigheder forbeholdes. CDT Platform er en del af CD AI Systems økosystemet.
