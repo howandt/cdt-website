@@ -146,7 +146,7 @@ export default function OmCDTPage() {
           <div className="bg-emerald-600 rounded-xl p-8 text-white">
             <h2 className="text-3xl font-bold mb-4">Del af CDA Økosystemet</h2>
             <p className="text-lg leading-relaxed mb-4 opacity-95">
-              CDT er en integreret del af CDA (Children's Development AI) økosystemet. 
+              CDT er en integreret del af CDA (Children&apos;s Development AI) økosystemet. 
               Dette betyder, at din læring og udvikling direkte påvirker, hvordan du kan 
               støtte børn gennem hele deres udviklingsrejse.
             </p>

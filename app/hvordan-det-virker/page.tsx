@@ -26,7 +26,7 @@ export default function HowItWorks() {
             </p>
             <div className="bg-gray-700/50 p-4 rounded-lg">
               <p className="text-gray-400 italic">
-                "Hej, jeg hedder Heidi. Hvad er dit navn, og hvilken rolle har du?"
+                &quot;Hej, jeg hedder Heidi. Hvad er dit navn, og hvilken rolle har du?&quot;
               </p>
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function HowItWorks() {
                 <div>
                   <strong className="text-emerald-300">Du får en case:</strong>
                   <p className="text-gray-400 text-sm mt-1">
-                    "Mads på 9 år bliver vred når han skal ind fra frikvarter..."
+                    &quot;Mads på 9 år bliver vred når han skal ind fra frikvarter...&quot;
                   </p>
                 </div>
               </div>
@@ -94,7 +94,7 @@ export default function HowItWorks() {
                 <div>
                   <strong className="text-emerald-300">Heidi evaluerer:</strong>
                   <p className="text-gray-400 text-sm mt-1">
-                    "God ide med forberedelse! Men hvad hvis Mads bliver overrasket?"
+                    &quot;God ide med forberedelse! Men hvad hvis Mads bliver overrasket?&quot;
                   </p>
                 </div>
               </div>
