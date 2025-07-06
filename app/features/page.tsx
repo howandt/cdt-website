@@ -37,7 +37,7 @@ export default function Features() {
             <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
               <h3 className="text-xl font-bold text-emerald-400 mb-3">📋 Skabelon-bibliotek</h3>
               <p className="text-gray-300">
-                Trafiklys-kort, step-by-step guides, sociale scripts - præcist matchet til hver situation.
+                Trafiklys-kort, step-by-step guides, sociale scripts - præcist matchet til hver situation.Inkluderer skole-hjem skabeloner for ensartet kommunikation.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
