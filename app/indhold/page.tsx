@@ -9,7 +9,7 @@ export default function IndholdPage() {
     diagnose: ['15+ kernediagnoser', 'Grundlæggende symptombeskrivelser', 'Basis behandlingsmetoder'],
     cases: ['20 grundcases', 'Standard kompleksitet', 'Basis løsningsforslag'],
     pbl: ['5 kerneprojekter', 'Individuel gennemførelse', 'Standard feedback'],
-    komo: ['Basis samtaleguides', '10 kommunikationsskabeloner', 'Grundlæggende strategier'],
+    Komorbid: ['Basis samtaleguides', '10 kommunikationsskabeloner', 'Grundlæggende strategier'],
     quiz: ['200+ spørgsmål', 'Basis sværhedsgrader', 'Standard feedback'],
     rollespil: ['10 standard scenarier', 'Tekst-baseret rollespil', 'Basis feedback']
   };
@@ -18,7 +18,7 @@ export default function IndholdPage() {
     diagnose: ['50+ diagnoser', 'Detaljerede symptomprofiler', 'Nyeste forskningsbaserede metoder', 'Komorbiditetsinformation'],
     cases: ['100+ cases', 'Varierende kompleksitet', 'Multiple løsningsstrategier', 'Video-demonstrationer'],
     pbl: ['25+ projekter', 'Gruppe-kollaboration', 'Heidi AI-mentoring', 'Peer-review muligheder'],
-    komo: ['50+ samtaleguides', 'Kulturelt tilpassede skabeloner', 'Konfliktløsningsværktøjer', 'Forældreinddragelse guides'],
+    Komorbid: ['50+ samtaleguides', 'Kulturelt tilpassede skabeloner', 'Konfliktløsningsværktøjer', 'Forældreinddragelse guides'],
     quiz: ['1000+ spørgsmål', 'Adaptive sværhedsgrader', 'Detaljeret forklaring', 'Personlige læringsrapporter'],
     rollespil: ['Ubegrænsede scenarier', 'AI-drevne samtaler', 'Stemmeanalyse', 'Video-optag og replay']
   };
@@ -213,7 +213,7 @@ export default function IndholdPage() {
               </div>
             </div>
 
-            {/* KOMO Bibliotek */}
+            {/* Komorbid Bibliotek */}
             <div className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-all">
               <div className="flex items-start justify-between mb-4">
                 <div className="text-4xl">🗣️</div>
@@ -223,7 +223,7 @@ export default function IndholdPage() {
                   </span>
                 )}
               </div>
-              <h3 className="text-xl font-bold text-emerald-400 mb-3">KOMO Bibliotek</h3>
+              <h3 className="text-xl font-bold text-emerald-400 mb-3">Komorbid Bibliotek</h3>
               <p className="text-gray-300 mb-4">
                 Kommunikationsværktøjer og samtalestrategier.
               </p>
@@ -232,7 +232,7 @@ export default function IndholdPage() {
                   <div className={selectedPlan === 'basic' ? '' : 'opacity-50'}>
                     <h4 className="text-sm font-semibold text-gray-400 mb-2">Basic indhold:</h4>
                     <ul className="space-y-1 text-sm">
-                      {basicFeatures.komo.map((feature, i) => (
+                      {basicFeatures.Komorbid.map((feature, i) => (
                         <li key={i} className={selectedPlan === 'basic' ? 'text-emerald-400 font-semibold' : 'text-gray-500'}>
                           • {feature}
                         </li>
@@ -242,7 +242,7 @@ export default function IndholdPage() {
                   <div className={selectedPlan === 'pro' ? '' : 'opacity-50'}>
                     <h4 className="text-sm font-semibold text-gray-400 mb-2">PRO indhold:</h4>
                     <ul className="space-y-1 text-sm">
-                      {proFeatures.komo.map((feature, i) => (
+                      {proFeatures.Komorbid.map((feature, i) => (
                         <li key={i} className={selectedPlan === 'pro' ? 'text-emerald-400 font-semibold' : 'text-gray-500'}>
                           • {feature}
                         </li>

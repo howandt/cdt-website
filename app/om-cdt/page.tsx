@@ -98,7 +98,7 @@ export default function OmCDTPage() {
             </div>
             <div className="bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition-colors">
               <div className="text-4xl mb-4">🗣️</div>
-              <h3 className="text-xl font-semibold text-emerald-400 mb-2">KOMO Bibliotek</h3>
+              <h3 className="text-xl font-semibold text-emerald-400 mb-2">Komorbid Bibliotek</h3>
               <p className="text-gray-300">Kommunikationsværktøjer og strategier for effektiv interaktion.</p>
             </div>
             <div className="bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition-colors">

@@ -97,12 +97,12 @@ export default function HomePage() {
                 </div>
               </Link>
 
-              {/* KOMO Bibliotek */}
+              {/* komorbid Bibliotek */}
               <Link href="/indhold#biblioteker" className="group">
                 <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
                   <div className="text-4xl mb-4">🗣️</div>
                   <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                    KOMO Bibliotek
+                    Komorbid Bibliotek
                   </h3>
                   <p className="text-gray-300 mb-4">
                     Kommunikationsværktøjer og strategier til effektiv dialog
@@ -242,7 +242,7 @@ export default function HomePage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-emerald-500 mt-1">✓</span>
-                    <span className="text-gray-300">Avancerede KOMO værktøjer</span>
+                    <span className="text-gray-300">Avancerede Komorbid værktøjer</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-emerald-500 mt-1">✓</span>
