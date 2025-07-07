@@ -9,11 +9,11 @@ export default function HomePage() {
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-emerald-500 mb-6">
-            CDT Interaktiv Fagbog
+            CDT Platform
           </h1>
           <p className="text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-  Intelligent træningsplatform for professionelle og forældre der arbejder med børn med særlige behov
-</p>
+            Intelligent træningsplatform for professionelle og forældre der arbejder med børn med særlige behov
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link 
               href="/om-cdt" 

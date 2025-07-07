@@ -1,10 +1,18 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState<'da' | 'en'>('da');
+  useEffect(() => {
+  const saved = localStorage.getItem('language');
+  if (saved === 'en') setLanguage('en');
+}, []);
+
+useEffect(() => {
+  localStorage.setItem('language', language);
+}, [language]);
 
   const menuItems = {
     da: {
