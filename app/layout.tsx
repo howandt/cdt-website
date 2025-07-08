@@ -27,21 +27,7 @@ export default function RootLayout({
   return (
     <html lang="da">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* Google Translate Widget */}
-<div id="google_translate_element" className="fixed top-20 right-4 z-50"></div>
-<script
-  dangerouslySetInnerHTML={{
-    __html: `
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-          {pageLanguage: 'da', includedLanguages: 'en,da,de,sv,no'},
-          'google_translate_element'
-        );
-      }
-    `,
-  }}
-/>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
   <Navigation />
   <main>{children}</main>
   <Footer />
