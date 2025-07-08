@@ -1,8 +1,9 @@
-'use client';
+
 import Link from 'next/link';
 import QRDemo from './components/QRDemo';
 
 export default function HomePage() {
+
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Hero Section */}
@@ -12,8 +13,8 @@ export default function HomePage() {
             CDT Platform
           </h1>
           <p className="text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Intelligent træningsplatform for professionelle og forældre der arbejder med børn med særlige behov
-          </p>
+  Intelligent træningsplatform for professionelle og forældre der arbejder med børn med særlige behov
+</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link 
               href="/om-cdt" 
