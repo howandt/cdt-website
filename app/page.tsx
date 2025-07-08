@@ -105,7 +105,7 @@ export default function HomePage() {
                     Komorbid Bibliotek
                   </h3>
                   <p className="text-gray-300 mb-4">
-                    Kommunikationsværktøjer og strategier til effektiv dialog
+                    Flere psykiske lidelser samtidigt, kan maskere eller forstærke symptomer.
                   </p>
                   <span className="text-emerald-500 font-semibold flex items-center gap-1">
                     Se værktøjer
