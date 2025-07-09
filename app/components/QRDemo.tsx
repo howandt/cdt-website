@@ -1,8 +1,17 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { QRCodeSVG } from 'qrcode.react';
 
 export default function QRDemo() {
   const [showDemo, setShowDemo] = useState(false);
+  const [demoUrl, setDemoUrl] = useState('');
+
+  useEffect(() => {
+    // Generer unik demo URL
+    const baseUrl = window.location.origin;
+    const demoId = Math.random().toString(36).substring(7);
+    setDemoUrl(`${baseUrl}/demo/${demoId}`);
+  }, []);
 
   return (
     <section id="demo" className="py-20 bg-gray-800">
@@ -12,15 +21,21 @@ export default function QRDemo() {
         </h2>
         
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          {/* Demo Preview */}
-          <div className="text-center">
-            <div className="bg-white p-8 rounded-xl inline-block cursor-pointer" onClick={() => setShowDemo(true)}>
-              <div className="w-48 h-48 bg-gray-300 flex items-center justify-center rounded">
-                <span className="text-gray-600 text-lg">Demo Preview</span>
-              </div>
-            </div>
-            <p className="text-gray-300 mt-4">Klik for at starte interaktiv demo</p>
-          </div>
+  {/* QR Code i stedet for Demo Preview */}
+  <div className="text-center">
+    <div className="bg-gray-900 p-4 rounded-xl inline-block border-2 border-emerald-500">
+      {demoUrl && (
+        <QRCodeSVG 
+          value={demoUrl}
+          size={180}
+          level="H"
+          includeMargin={false}
+        />
+      )}
+    </div>
+    <p className="text-gray-300 mt-4">Scan QR koden for at starte demo</p>
+    <p className="text-gray-400 text-sm mt-2">Eller klik på knappen nedenfor</p>
+  </div>
           
           {/* Forklaring */}
           <div>
@@ -47,7 +62,7 @@ export default function QRDemo() {
             </ol>
             
             <button 
-              onClick={() => setShowDemo(true)}
+              onClick={() => window.location.href = demoUrl}
               className="mt-8 bg-emerald-500 text-white px-8 py-3 rounded-lg hover:bg-emerald-600 transition font-semibold"
             >
               Start Interaktiv Demo →
@@ -55,26 +70,16 @@ export default function QRDemo() {
           </div>
         </div>
 
-        {/* Demo Modal */}
-        {showDemo && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-gray-800 p-8 rounded-xl max-w-2xl mx-4">
-              <h3 className="text-2xl font-bold text-emerald-500 mb-4">
-                CDT Demo
-              </h3>
-              <p className="text-gray-300 mb-6">
-                I den fulde version vil du her møde Heidi og gennemgå en interaktiv case.
-                Kontakt os for at få adgang til hele platformen.
-              </p>
-              <button 
-                onClick={() => setShowDemo(false)}
-                className="bg-emerald-500 text-white px-6 py-2 rounded hover:bg-emerald-600 transition"
-              >
-                Luk Demo
-              </button>
-            </div>
-          </div>
-        )}
+        {/* Demo info box */}
+        <div className="max-w-2xl mx-auto mt-12 bg-gray-700/50 p-6 rounded-lg border border-gray-600">
+          <h4 className="text-emerald-400 font-semibold mb-2">Demo Information:</h4>
+          <ul className="text-gray-300 text-sm space-y-1">
+            <li>• 30 minutters gratis prøveperiode</li>
+            <li>• Ingen kreditkort påkrævet</li>
+            <li>• Fuld adgang til alle funktioner</li>
+            <li>• Automatisk tracking af din fremgang</li>
+          </ul>
+        </div>
       </div>
     </section>
   );
