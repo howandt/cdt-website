@@ -110,14 +110,14 @@ export default function GoogleTranslate() {
   return (
     <div className="relative">
       {/* Hidden Google Translate Element */}
-      <div id="google_translate_element" className="block"></div>
+      <div id="google_translate_element" className="hidden"></div>
       
-      {/* Custom Language Selector - backup */}
-      <div className="relative md:hidden">
+      {/* Custom Language Selector */}
+      <div className="relative">
         <select 
           value={currentLang}
           onChange={(e) => changeLanguage(e.target.value)}
-          className="bg-white border border-gray-300 rounded-lg px-3 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none cursor-pointer"
+          className="bg-white border border-gray-300 rounded-lg px-3 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none cursor-pointer min-w-0 w-auto"
         >
           {languages.map((lang) => (
             <option key={lang.code} value={lang.code}>
@@ -133,45 +133,9 @@ export default function GoogleTranslate() {
       </div>
 
       <style jsx global>{`
-        /* Google Translate Widget Styling */
+        /* Completely hide Google Translate widget */
         .goog-te-gadget-simple {
-          background-color: white !important;
-          border: 1px solid #d1d5db !important;
-          border-radius: 0.5rem !important;
-          padding: 0.5rem 0.75rem !important;
-          font-size: 0.875rem !important;
-          color: #374151 !important;
-          cursor: pointer !important;
-          display: inline-block !important;
-          max-width: 200px !important;
-          white-space: nowrap !important;
-        }
-        
-        .goog-te-gadget-simple:hover {
-          border-color: #9ca3af !important;
-        }
-        
-        .goog-te-menu-value {
-          color: #374151 !important;
-          font-size: 0.875rem !important;
-        }
-        
-        .goog-te-gadget-icon {
           display: none !important;
-        }
-        
-        .goog-te-gadget-simple .goog-te-menu-value span:first-child::before {
-          content: "🌐 ";
-        }
-        
-        /* Hide the dropdown text, only show icon + language */
-        .goog-te-gadget-simple .goog-te-menu-value span:first-child {
-          font-size: 0 !important;
-        }
-        
-        .goog-te-gadget-simple .goog-te-menu-value span:first-child::after {
-          content: "Change Language";
-          font-size: 0.875rem !important;
         }
         
         /* Hide Google Translate banner */
@@ -183,13 +147,9 @@ export default function GoogleTranslate() {
           top: 0px !important;
         }
         
-        /* Ensure compact layout */
+        /* Hide any other Google Translate elements */
         .goog-te-gadget {
-          line-height: 1 !important;
-        }
-        
-        .goog-te-gadget-simple .goog-te-menu-value {
-          vertical-align: top !important;
+          display: none !important;
         }
       `}</style>
     </div>
