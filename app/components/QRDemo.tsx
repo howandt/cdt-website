@@ -58,13 +58,34 @@ export default function QRDemo() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-xl shadow-lg p-8">
             <div className="flex items-center justify-between mb-6">
-              <h1 className="text-3xl font-bold text-gray-800">Optimal Løsning - Heidi Case</h1>
+              <h1 className="text-3xl font-bold text-gray-800">
+                Optimal Løsning - Heidi Case 
+                <span className="text-lg text-blue-600 ml-2">
+                  ({selectedRole === 'teacher' ? 'Lærer perspektiv' : 
+                    selectedRole === 'parent' ? 'Forælder perspektiv' : 
+                    'Specialist perspektiv'})
+                </span>
+              </h1>
               <button
                 onClick={() => setShowOptimalSolution(false)}
                 className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors"
               >
                 Tilbage
               </button>
+            </div>
+
+            {/* Role-specific introduction */}
+            <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+              <h2 className="text-lg font-semibold text-blue-800 mb-2">
+                {selectedRole === 'teacher' && '👩‍🏫 Som lærer er dit fokus:'}
+                {selectedRole === 'parent' && '👨‍👩‍👧 Som forælder er dit fokus:'}
+                {selectedRole === 'specialist' && '👩‍⚕️ Som specialist er dit fokus:'}
+              </h2>
+              <p className="text-blue-700">
+                {selectedRole === 'teacher' && 'At skabe et struktureret og trygt læringsmiljø, hvor Heidi kan udvikle sig akademisk og socialt, mens hendes særlige behov imødekommes i klassekonteksten.'}
+                {selectedRole === 'parent' && 'At understøtte Heidi hjemme, samarbejde konstruktivt med skolen, og sikre kontinuitet mellem hjem og skole i jeres tilgange til Heidis udvikling.'}
+                {selectedRole === 'specialist' && 'At rådgive og støtte både familie og skole med evidensbaserede metoder, koordinere tværfaglig indsats, og sikre trauma-informeret praksis.'}
+              </p>
             </div>
 
             <div className="space-y-6">
@@ -120,20 +141,56 @@ export default function QRDemo() {
               </div>
 
               <div className="bg-indigo-50 border border-indigo-200 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-indigo-800 mb-3">💡 Konkrete Interventioner</h3>
+                <h3 className="text-lg font-semibold text-indigo-800 mb-3">💡 Rolle-specifikke Interventioner</h3>
                 <div className="grid md:grid-cols-3 gap-4">
-                  <div>
-                    <h4 className="font-medium text-indigo-700 mb-2">Morgen Rutine</h4>
-                    <p className="text-sm text-indigo-600">Visualt skema med morgenprocedurer, mulighed for at krydse af efterhånden</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-indigo-700 mb-2">Pause Strategier</h4>
-                    <p className="text-sm text-indigo-600">5-minutters sensoriske pauser hver 20. minut med bevægelse eller dyb tryk</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-indigo-700 mb-2">Kommunikation</h4>
-                    <p className="text-sm text-indigo-600">PECS kort eller tablet til at udtrykke behov og følelser</p>
-                  </div>
+                  {selectedRole === 'teacher' && (
+                    <>
+                      <div>
+                        <h4 className="font-medium text-indigo-700 mb-2">Klasseværelset</h4>
+                        <p className="text-sm text-indigo-600">Visualt dagsskema, fast plads med færre distraktioner, sensorisk hjørne til pauser</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-indigo-700 mb-2">Undervisning</h4>
+                        <p className="text-sm text-indigo-600">Korte instruktioner, tjek af forståelse, alternative evalueringsformer</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-indigo-700 mb-2">Sociale Situationer</h4>
+                        <p className="text-sm text-indigo-600">Strukturerede pauseaktiviteter, buddy-system, sociale historier</p>
+                      </div>
+                    </>
+                  )}
+                  {selectedRole === 'parent' && (
+                    <>
+                      <div>
+                        <h4 className="font-medium text-indigo-700 mb-2">Hjemme Rutiner</h4>
+                        <p className="text-sm text-indigo-600">Faste tider for lektier, visualt hjemmeskema, rolig morgenrutine</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-indigo-700 mb-2">Skole-hjem Samarbejde</h4>
+                        <p className="text-sm text-indigo-600">Daglig kommunikationsbog, fælles strategier, forberedelse af ændringer</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-indigo-700 mb-2">Fritid & Familie</h4>
+                        <p className="text-sm text-indigo-600">Sensoriske aktiviteter, strukturerede playdates, familietid uden krav</p>
+                      </div>
+                    </>
+                  )}
+                  {selectedRole === 'specialist' && (
+                    <>
+                      <div>
+                        <h4 className="font-medium text-indigo-700 mb-2">Assessering</h4>
+                        <p className="text-sm text-indigo-600">Sensorisk profil, adfærdsobservationer, funktionelle vurderinger</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-indigo-700 mb-2">Intervention</h4>
+                        <p className="text-sm text-indigo-600">Trauma-informeret terapi, sensorisk integration, social færdighedstræning</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-indigo-700 mb-2">Koordination</h4>
+                        <p className="text-sm text-indigo-600">Tværfaglige møder, supervision af personale, opfølgning på mål</p>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -301,12 +358,30 @@ export default function QRDemo() {
                     <strong>Udfordringer:</strong> Heidi har svært ved at starte opgaver, bliver hurtigt frustreret, 
                     og reagerer kraftigt på lyde og berøring. Hun trækker sig ofte væk fra sociale situationer.
                   </p>
-                  <p>
-                    <strong>Din opgave:</strong> Hvordan vil du som <strong>{
-                      selectedRole === 'teacher' ? 'lærer' : 
-                      selectedRole === 'parent' ? 'forælder' : 'specialist'
-                    }</strong> hjælpe Heidi med at trives i hverdagen?
-                  </p>
+                  <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <p className="font-semibold text-blue-800 mb-2">Din rolle-specifikke opgave:</p>
+                    {selectedRole === 'teacher' && (
+                      <p className="text-blue-700">
+                        Som <strong>lærer</strong> skal du hjælpe Heidi med at trives i klasseværelset. 
+                        Fokuser på hvordan du strukturerer undervisningen, skaber forudsigelighed, 
+                        og håndterer Heidis behov for pauser og sensorisk regulering i skolemiljøet.
+                      </p>
+                    )}
+                    {selectedRole === 'parent' && (
+                      <p className="text-blue-700">
+                        Som <strong>forælder</strong> skal du støtte Heidi hjemme og i samarbejdet med skolen. 
+                        Tænk på hvordan du skaber struktur i hjemmet, forbereder Heidi på skoledagen, 
+                        og kommunikerer med lærerne om Heidis behov og fremskridt.
+                      </p>
+                    )}
+                    {selectedRole === 'specialist' && (
+                      <p className="text-blue-700">
+                        Som <strong>specialist</strong> skal du rådgive og understøtte både forældre og skole. 
+                        Fokuser på evidensbaserede interventioner, tværfagligt samarbejde, 
+                        og hvordan du kan hjælpe med at implementere trauma-informerede tilgange.
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
 
