@@ -1,22 +1,26 @@
 'use client';
 import { useEffect, useState } from 'react';
 
+interface GoogleTranslateElement {
+  new (options: GoogleTranslateOptions, elementId: string): void;
+  InlineLayout: {
+    SIMPLE: number;
+  };
+}
+
+interface GoogleTranslateOptions {
+  pageLanguage: string;
+  includedLanguages: string;
+  layout: number;
+  autoDisplay: boolean;
+  multilanguagePage: boolean;
+}
+
 declare global {
   interface Window {
     google: {
       translate: {
-        TranslateElement: {
-          new (options: {
-            pageLanguage: string;
-            includedLanguages: string;
-            layout: number;
-            autoDisplay: boolean;
-            multilanguagePage: boolean;
-          }, elementId: string): void;
-          InlineLayout: {
-            SIMPLE: number;
-          };
-        };
+        TranslateElement: GoogleTranslateElement;
       };
     };
     googleTranslateElementInit: () => void;
