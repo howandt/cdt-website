@@ -1,8 +1,7 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 
-  declare global {
+declare global {
   interface Window {
     google: {
       translate: {
@@ -14,101 +13,98 @@ import { useEffect, useState } from 'react';
 }
 
 export default function GoogleTranslate() {
-  const [showDropdown, setShowDropdown] = useState(false);
   const [currentLang, setCurrentLang] = useState('da');
 
   useEffect(() => {
-    window.googleTranslateElementInit = function() {
-      new window.google.translate.TranslateElement(
-        {
-          pageLanguage: 'da',
-          includedLanguages: 'en,da,de,sv,no',
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false
-        },
-        'google_translate_element_hidden'
-      );
-    };
-
-    if (!document.querySelector('#google-translate-script')) {
-      const script = document.createElement('script');
-      script.id = 'google-translate-script';
-      script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-      script.async = true;
-      document.body.appendChild(script);
+    // Check if Google Translate is already loaded
+    if (window.google && window.google.translate) {
+      initializeGoogleTranslate();
+      return;
     }
 
-    // Skjul Google banner
-    const style = document.createElement('style');
-    style.innerHTML = `
-      .goog-te-banner-frame { display: none !important; }
-      body { top: 0 !important; }
-    `;
-    document.head.appendChild(style);
+    // Add Google Translate script
+    const script = document.createElement('script');
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.async = true;
+    document.head.appendChild(script);
+
+    // Initialize Google Translate
+    window.googleTranslateElementInit = () => {
+      initializeGoogleTranslate();
+    };
+
+    return () => {
+      // Cleanup
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
   }, []);
 
+  const initializeGoogleTranslate = () => {
+    if (window.google && window.google.translate) {
+      new window.google.translate.TranslateElement({
+        pageLanguage: 'da',
+        includedLanguages: 'da,en,de,fr,es,it,sv,no',
+        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false,
+        multilanguagePage: true
+      }, 'google_translate_element');
+    }
+  };
+
   const changeLanguage = (langCode: string) => {
-  setCurrentLang(langCode);
-  setShowDropdown(false);
-  
-  // Brug Google Translate's cookie metode
-  document.cookie = `googtrans=/da/${langCode}; path=/`;
-  document.cookie = `googtrans=/da/${langCode}; path=/; domain=.${window.location.hostname}`;
-  
-  // Genindlæs siden for at aktivere oversættelsen
-  window.location.reload();
-};
+    setCurrentLang(langCode);
+    
+    // Set cookie for language preference
+    document.cookie = `googtrans=/da/${langCode}; path=/; max-age=31536000`;
+    
+    // Trigger Google Translate
+    const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    if (selectElement) {
+      selectElement.value = langCode;
+      selectElement.dispatchEvent(new Event('change'));
+    } else {
+      // If Google Translate isn't ready, reload the page with language parameter
+      window.location.reload();
+    }
+  };
 
   const languages = [
     { code: 'da', name: 'Dansk', flag: '🇩🇰' },
-    { code: 'en', name: 'English', flag: '🇬🇧' },
+    { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'fr', name: 'Français', flag: '🇫🇷' },
+    { code: 'es', name: 'Español', flag: '🇪🇸' },
+    { code: 'it', name: 'Italiano', flag: '🇮🇹' },
     { code: 'sv', name: 'Svenska', flag: '🇸🇪' },
     { code: 'no', name: 'Norsk', flag: '🇳🇴' }
   ];
 
   return (
-    <>
-      {/* Skjult Google Translate element */}
-      <div id="google_translate_element_hidden" style={{ position: 'absolute', left: '-9999px' }} />
+    <div className="relative">
+      {/* Hidden Google Translate Element */}
+      <div id="google_translate_element" className="hidden"></div>
       
-      {/* Vores egen knap */}
-      <div className="fixed top-24 right-4 z-40">
-        <button
-          onClick={() => setShowDropdown(!showDropdown)}
-          className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 
-                     px-4 py-2 rounded-lg border border-gray-600 transition-colors"
+      {/* Custom Language Selector */}
+      <div className="relative">
+        <select 
+          value={currentLang}
+          onChange={(e) => changeLanguage(e.target.value)}
+          className="bg-white border border-gray-300 rounded-lg px-3 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none cursor-pointer"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-          </svg>
-          <span className="text-sm">Language</span>
-          <svg className={`w-4 h-4 transition-transform ${showDropdown ? 'rotate-180' : ''}`} 
-               fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {languages.map((lang) => (
+            <option key={lang.code} value={lang.code}>
+              {lang.flag} {lang.name}
+            </option>
+          ))}
+        </select>
+        <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+          <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
-        </button>
-
-        {/* Dropdown menu */}
-        {showDropdown && (
-          <div className="absolute right-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-xl 
-                          border border-gray-700 overflow-hidden">
-            {languages.map((lang) => (
-              <button
-                key={lang.code}
-                onClick={() => changeLanguage(lang.code)}
-                className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-700 
-                           transition-colors text-left
-                           ${currentLang === lang.code ? 'bg-gray-700 text-emerald-400' : 'text-gray-300'}`}
-              >
-                <span className="text-lg">{lang.flag}</span>
-                <span className="text-sm">{lang.name}</span>
-              </button>
-            ))}
-          </div>
-        )}
+        </div>
       </div>
-    </>
+    </div>
   );
 }
