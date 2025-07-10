@@ -3,8 +3,13 @@
 import { useEffect, useState } from 'react';
 
 declare global {
+  declare global {
   interface Window {
-    google: any;
+    google: {
+      translate: {
+        TranslateElement: any;
+      };
+    };
     googleTranslateElementInit: () => void;
   }
 }

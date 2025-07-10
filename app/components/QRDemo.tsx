@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 
 export default function QRDemo() {
-  const [showDemo, setShowDemo] = useState(false);
   const [demoUrl, setDemoUrl] = useState('');
 
   useEffect(() => {
