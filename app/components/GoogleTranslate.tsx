@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 
-declare global {
   declare global {
   interface Window {
     google: {
