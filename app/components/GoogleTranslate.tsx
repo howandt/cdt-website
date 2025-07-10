@@ -65,6 +65,17 @@ export default function GoogleTranslate() {
         autoDisplay: false,
         multilanguagePage: true
       }, 'google_translate_element');
+
+      // Customize the Google Translate widget text after it loads
+      setTimeout(() => {
+        const translateElement = document.querySelector('.goog-te-gadget-simple');
+        if (translateElement) {
+          const textNode = translateElement.querySelector('.goog-te-menu-value span:first-child');
+          if (textNode && textNode.textContent === 'Dansk') {
+            textNode.textContent = 'Change Language';
+          }
+        }
+      }, 1000);
     }
   };
 
@@ -99,10 +110,10 @@ export default function GoogleTranslate() {
   return (
     <div className="relative">
       {/* Hidden Google Translate Element */}
-      <div id="google_translate_element" className="hidden"></div>
+      <div id="google_translate_element" className="block"></div>
       
-      {/* Custom Language Selector */}
-      <div className="relative">
+      {/* Custom Language Selector - backup */}
+      <div className="relative md:hidden">
         <select 
           value={currentLang}
           onChange={(e) => changeLanguage(e.target.value)}
@@ -120,6 +131,44 @@ export default function GoogleTranslate() {
           </svg>
         </div>
       </div>
+
+      <style jsx global>{`
+        /* Google Translate Widget Styling */
+        .goog-te-gadget-simple {
+          background-color: white !important;
+          border: 1px solid #d1d5db !important;
+          border-radius: 0.5rem !important;
+          padding: 0.5rem 0.75rem !important;
+          font-size: 0.875rem !important;
+          color: #374151 !important;
+          cursor: pointer !important;
+        }
+        
+        .goog-te-gadget-simple:hover {
+          border-color: #9ca3af !important;
+        }
+        
+        .goog-te-menu-value {
+          color: #374151 !important;
+        }
+        
+        .goog-te-gadget-icon {
+          display: none !important;
+        }
+        
+        .goog-te-gadget-simple .goog-te-menu-value span:first-child::before {
+          content: "🌐 ";
+        }
+        
+        /* Hide Google Translate banner */
+        .goog-te-banner-frame.skiptranslate {
+          display: none !important;
+        }
+        
+        body {
+          top: 0px !important;
+        }
+      `}</style>
     </div>
   );
 }
