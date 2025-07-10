@@ -44,16 +44,16 @@ export default function GoogleTranslate() {
   }, []);
 
   const changeLanguage = (langCode: string) => {
-    setCurrentLang(langCode);
-    setShowDropdown(false);
-    
-    // Trigger Google Translate
-    const select = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-    if (select) {
-      select.value = langCode;
-      select.dispatchEvent(new Event('change'));
-    }
-  };
+  setCurrentLang(langCode);
+  setShowDropdown(false);
+  
+  // Brug Google Translate's cookie metode
+  document.cookie = `googtrans=/da/${langCode}; path=/`;
+  document.cookie = `googtrans=/da/${langCode}; path=/; domain=.${window.location.hostname}`;
+  
+  // Genindlæs siden for at aktivere oversættelsen
+  window.location.reload();
+};
 
   const languages = [
     { code: 'da', name: 'Dansk', flag: '🇩🇰' },
