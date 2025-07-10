@@ -31,25 +31,26 @@ export default function GoogleTranslate() {
   const [currentLang, setCurrentLang] = useState('da');
 
   useEffect(() => {
-    // Check if Google Translate is already loaded
-    if (window.google && window.google.translate) {
-      initializeGoogleTranslate();
-      return;
-    }
-
-    // Add Google Translate script
+    // Add Google Translate script but keep it hidden
     const script = document.createElement('script');
     script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     script.async = true;
     document.head.appendChild(script);
 
-    // Initialize Google Translate
+    // Initialize Google Translate but keep it hidden
     window.googleTranslateElementInit = () => {
-      initializeGoogleTranslate();
+      if (window.google && window.google.translate) {
+        new window.google.translate.TranslateElement({
+          pageLanguage: 'da',
+          includedLanguages: 'da,en,de,fr,es,it,sv,no',
+          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false,
+          multilanguagePage: true
+        }, 'google_translate_element');
+      }
     };
 
     return () => {
-      // Cleanup
       if (script.parentNode) {
         script.parentNode.removeChild(script);
       }
@@ -85,15 +86,8 @@ export default function GoogleTranslate() {
     // Set cookie for language preference
     document.cookie = `googtrans=/da/${langCode}; path=/; max-age=31536000`;
     
-    // Trigger Google Translate
-    const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-    if (selectElement) {
-      selectElement.value = langCode;
-      selectElement.dispatchEvent(new Event('change'));
-    } else {
-      // If Google Translate isn't ready, reload the page with language parameter
-      window.location.reload();
-    }
+    // Force page reload to apply translation
+    window.location.reload();
   };
 
   const languages = [
