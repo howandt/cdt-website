@@ -112,8 +112,8 @@ export default function QRDemo() {
                 <div className="bg-purple-50 p-6 rounded-lg">
                   <h3 className="text-lg font-semibold text-purple-800 mb-3">❤️ Relationelle Strategier</h3>
                   <ul className="space-y-2 text-purple-700">
-                    <li>• <strong>Anerkend følelser:</strong> "Jeg kan se du er frustreret"</li>
-                    <li>• <strong>Valg indenfor rammer:</strong> "Vil du have den blå eller røde bog?"</li>
+                    <li>• <strong>Anerkend følelser:</strong> &ldquo;Jeg kan se du er frustreret&rdquo;</li>
+                    <li>• <strong>Valg indenfor rammer:</strong> &ldquo;Vil du have den blå eller røde bog?&rdquo;</li>
                     <li>• <strong>Styrkebaseret tilgang:</strong> Fokuser på Heidis kompetencer</li>
                     <li>• <strong>Co-regulation:</strong> Hjælp Heidi med at regulere gennem din tilstedeværelse</li>
                   </ul>
