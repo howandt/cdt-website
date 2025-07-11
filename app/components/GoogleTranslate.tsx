@@ -165,6 +165,27 @@ export default function GoogleTranslate() {
         .goog-te-banner-frame img {
           display: none !important;
         }
+        
+        /* Force normal text colors - override Google Translate styling */
+        body, body * {
+          color: inherit !important;
+        }
+        
+        /* Specifically fix button and text colors */
+        button, select, input {
+          color: #374151 !important;
+        }
+        
+        /* Fix any gray text Google Translate might have added */
+        font[color="#777777"], font[color="rgb(119, 119, 119)"] {
+          color: inherit !important;
+        }
+        
+        /* Ensure our custom language selector has proper colors */
+        .bg-white {
+          background-color: white !important;
+          color: #374151 !important;
+        }
       `}</style>
     </div>
   );
