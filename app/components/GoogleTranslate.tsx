@@ -132,17 +132,60 @@ export default function GoogleTranslate() {
           display: none !important;
         }
         
-        /* Hide Google Translate banner */
+        /* Hide Google Translate banner completely */
         .goog-te-banner-frame.skiptranslate {
           display: none !important;
         }
         
+        .goog-te-banner-frame {
+          display: none !important;
+        }
+        
+        /* Hide the top banner with "View original", "Options", etc */
+        #goog-gt-tt {
+          display: none !important;
+        }
+        
+        .goog-te-balloon-frame {
+          display: none !important;
+        }
+        
+        /* Remove body top margin that Google adds */
         body {
           top: 0px !important;
+          margin-top: 0px !important;
         }
         
         /* Hide any other Google Translate elements */
         .goog-te-gadget {
+          display: none !important;
+        }
+        
+        /* Disable hover translation popup */
+        .goog-te-spinner-pos {
+          display: none !important;
+        }
+        
+        .goog-te-balloon-frame div {
+          display: none !important;
+        }
+        
+        /* Hide the translation hover bubbles */
+        .goog-te-balloon-frame {
+          visibility: hidden !important;
+        }
+        
+        /* Remove any translation hover effects */
+        font[style*="color: rgb(68, 68, 68)"] {
+          color: inherit !important;
+        }
+        
+        /* Hide Google logo and branding */
+        .goog-logo-link {
+          display: none !important;
+        }
+        
+        .goog-te-banner-frame img {
           display: none !important;
         }
       `}</style>
