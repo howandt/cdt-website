@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useState, useEffect, Suspense } from 'react';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function RollespilPage() {
+function RollespilPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState('intro');
@@ -480,14 +480,15 @@ const currentOptimal = roleplayType === 'parent'
     );
   }
 
-  // Child perspective step
+    // Child perspective step
   if (currentStep === 'childPerspective') {
     const currentChoices = roleplayType === 'parent' 
-  ? (selectedScenario === 'screen_time' ? choices : bedtimeChoices)
-  : roleplayType === 'teacher'
-    ? teacherChoices
-    : professionalChoices;
-const choice = currentChoices.find(c => c.id === selectedChoice);
+      ? (selectedScenario === 'screen_time' ? choices : bedtimeChoices)
+      : roleplayType === 'teacher'
+        ? teacherChoices
+        : professionalChoices;
+    const choice = currentChoices.find(c => c.id === selectedChoice);
+    if (!choice) return null;
     
     return (
       <div className="min-h-screen bg-gray-900 py-8">
@@ -536,11 +537,12 @@ const choice = currentChoices.find(c => c.id === selectedChoice);
   // Feedback step
   if (currentStep === 'feedback' && showFeedback) {
     const currentChoices = roleplayType === 'parent' 
-  ? (selectedScenario === 'screen_time' ? choices : bedtimeChoices)
-  : roleplayType === 'teacher'
-    ? teacherChoices
-    : professionalChoices;
-const choice = currentChoices.find(c => c.id === selectedChoice);
+      ? (selectedScenario === 'screen_time' ? choices : bedtimeChoices)
+      : roleplayType === 'teacher'
+        ? teacherChoices
+        : professionalChoices;
+    const choice = currentChoices.find(c => c.id === selectedChoice);
+    if (!choice) return null;
     
     return (
       <div className="min-h-screen bg-gray-900 py-8">
@@ -645,4 +647,11 @@ const choice = currentChoices.find(c => c.id === selectedChoice);
   }
 
   return null;
+}
+export default function RollespilPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <RollespilPageContent />
+    </Suspense>
+  );
 }
