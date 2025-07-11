@@ -57,29 +57,6 @@ export default function GoogleTranslate() {
     };
   }, []);
 
-  const initializeGoogleTranslate = () => {
-    if (window.google && window.google.translate) {
-      new window.google.translate.TranslateElement({
-        pageLanguage: 'da',
-        includedLanguages: 'da,en,de,fr,es,it,sv,no',
-        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false,
-        multilanguagePage: true
-      }, 'google_translate_element');
-
-      // Customize the Google Translate widget text after it loads
-      setTimeout(() => {
-        const translateElement = document.querySelector('.goog-te-gadget-simple');
-        if (translateElement) {
-          const textNode = translateElement.querySelector('.goog-te-menu-value span:first-child');
-          if (textNode && textNode.textContent === 'Dansk') {
-            textNode.textContent = 'Change Language';
-          }
-        }
-      }, 1000);
-    }
-  };
-
   const changeLanguage = (langCode: string) => {
     setCurrentLang(langCode);
     
