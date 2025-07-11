@@ -167,13 +167,45 @@ export default function GoogleTranslate() {
         }
         
         /* Force normal text colors - override Google Translate styling */
-        body, body * {
+        body, body *, html, html * {
+          color: inherit !important;
+          opacity: 1 !important;
+          filter: none !important;
+        }
+        
+        /* Remove Google Translate gray overlay/filter */
+        body {
+          filter: none !important;
+          opacity: 1 !important;
+        }
+        
+        /* Fix all elements that Google might have grayed out */
+        div, p, h1, h2, h3, h4, h5, h6, span, button, a {
+          filter: none !important;
+          opacity: 1 !important;
           color: inherit !important;
         }
         
         /* Specifically fix button and text colors */
         button, select, input {
           color: #374151 !important;
+          background-color: white !important;
+          opacity: 1 !important;
+          filter: none !important;
+        }
+        
+        /* Style our language selector button properly */
+        select.bg-white {
+          background-color: #f8fafc !important;
+          border: 1px solid #d1d5db !important;
+          color: #374151 !important;
+          opacity: 1 !important;
+          filter: none !important;
+        }
+        
+        select.bg-white:hover {
+          background-color: #f1f5f9 !important;
+          border-color: #9ca3af !important;
         }
         
         /* Fix any gray text Google Translate might have added */
@@ -181,10 +213,9 @@ export default function GoogleTranslate() {
           color: inherit !important;
         }
         
-        /* Ensure our custom language selector has proper colors */
-        .bg-white {
-          background-color: white !important;
-          color: #374151 !important;
+        /* Override any Google Translate font styling */
+        font[style*="color"] {
+          color: inherit !important;
         }
       `}</style>
     </div>
