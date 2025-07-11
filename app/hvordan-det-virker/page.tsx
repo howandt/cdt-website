@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import BackButton from '../components/BackButton';
 export default function HowItWorks() {
   return (
@@ -164,9 +165,9 @@ export default function HowItWorks() {
 
           {/* CTA */}
           <div className="text-center mt-16">
-            <button className="bg-emerald-500 text-white px-8 py-4 rounded-lg hover:bg-emerald-600 transition font-bold text-lg">
-              Prøv CDT Gratis Nu
-            </button>
+            <Link href="/#demo" className="inline-block bg-emerald-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-emerald-700 transition-colors shadow-lg">
+  Prøv CDT Gratis Nu
+</Link>
           </div>
         </div>
       </main>

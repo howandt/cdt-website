@@ -281,127 +281,113 @@ export default function QRDemo() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-white rounded-xl shadow-lg p-8">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800 mb-4">CDT Demo Session</h1>
-            <p className="text-gray-600">Vælg din rolle og start en 30-minutters demo session</p>
-          </div>
-
-          {!isActive ? (
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-700 mb-4">Vælg din rolle:</h3>
-                <div className="grid gap-4">
-                  {[
-                    { id: 'teacher', name: 'Lærer', icon: '👩‍🏫', desc: 'Klasselærer eller fagpersonale' },
-                    { id: 'parent', name: 'Forælder', icon: '👨‍👩‍👧', desc: 'Forælder til barnet' },
-                    { id: 'specialist', name: 'Specialist', icon: '👩‍⚕️', desc: 'Psykolog, terapeut eller anden specialist' }
-                  ].map((role) => (
-                    <label key={role.id} className="cursor-pointer">
-                      <input
-                        type="radio"
-                        name="role"
-                        value={role.id}
-                        checked={selectedRole === role.id}
-                        onChange={(e) => setSelectedRole(e.target.value)}
-                        className="sr-only"
-                      />
-                      <div className={`p-4 rounded-lg border-2 transition-all ${
-                        selectedRole === role.id 
-                          ? 'border-blue-500 bg-blue-50' 
-                          : 'border-gray-200 hover:border-gray-300'
-                      }`}>
-                        <div className="flex items-center space-x-3">
-                          <span className="text-2xl">{role.icon}</span>
-                          <div>
-                            <div className="font-semibold text-gray-800">{role.name}</div>
-                            <div className="text-sm text-gray-600">{role.desc}</div>
-                          </div>
-                        </div>
-                      </div>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              <button
-                onClick={startSession}
-                disabled={!selectedRole}
-                className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors ${
-                  selectedRole
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                }`}
-              >
-                Start Demo Session (30 min)
-              </button>
+    <div className="py-20 bg-slate-800">
+      <div className="container mx-auto px-4">
+        
+        {/* QR Code and Role Selection Combined */}
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-emerald-800/40 backdrop-blur-sm rounded-xl shadow-xl p-8 border border-emerald-600/30">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-emerald-100 mb-4">Prøv CDT Demo</h2>
+              <p className="text-emerald-200/80">Scan QR koden eller vælg din rolle for at starte</p>
             </div>
-          ) : (
-            <div className="space-y-6">
+
+            {/* QR Code Section */}
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="text-center">
-                <div className="text-4xl font-mono text-blue-600 mb-2">
-                  {formatTime(timeLeft)}
+                <div className="bg-emerald-800/50 p-4 rounded-xl inline-block border-2 border-emerald-600/60">
+                  <img 
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://cdt-website.vercel.app/demo/heidi"
+                    alt="QR Code til CDT Demo"
+                    className="w-44 h-44 mx-auto"
+                  />
                 </div>
-                <p className="text-gray-600">Tid tilbage i demo session</p>
+                <p className="text-emerald-200/80 mt-3 text-sm">
+                  Scan med din telefon
+                </p>
               </div>
 
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">Case: Heidi (7 år)</h3>
-                <div className="text-gray-700 space-y-3">
-                  <p>
-                    <strong>Baggrund:</strong> Heidi er en 7-årig pige med autisme og ADHD. Hun har oplevet tidlig trauma 
-                    og har svært ved at regulere sine følelser, især ved overgange og uforudsete ændringer.
-                  </p>
-                  <p>
-                    <strong>Udfordringer:</strong> Heidi har svært ved at starte opgaver, bliver hurtigt frustreret, 
-                    og reagerer kraftigt på lyde og berøring. Hun trækker sig ofte væk fra sociale situationer.
-                  </p>
-                  <div className="mt-4 p-4 bg-blue-50 rounded-lg">
-                    <p className="font-semibold text-blue-800 mb-2">Din rolle-specifikke opgave:</p>
-                    {selectedRole === 'teacher' && (
-                      <p className="text-blue-700">
-                        Som <strong>lærer</strong> skal du hjælpe Heidi med at trives i klasseværelset. 
-                        Fokuser på hvordan du strukturerer undervisningen, skaber forudsigelighed, 
-                        og håndterer Heidis behov for pauser og sensorisk regulering i skolemiljøet.
-                      </p>
-                    )}
-                    {selectedRole === 'parent' && (
-                      <p className="text-blue-700">
-                        Som <strong>forælder</strong> skal du støtte Heidi hjemme og i samarbejdet med skolen. 
-                        Tænk på hvordan du skaber struktur i hjemmet, forbereder Heidi på skoledagen, 
-                        og kommunikerer med lærerne om Heidis behov og fremskridt.
-                      </p>
-                    )}
-                    {selectedRole === 'specialist' && (
-                      <p className="text-blue-700">
-                        Som <strong>specialist</strong> skal du rådgive og understøtte både forældre og skole. 
-                        Fokuser på evidensbaserede interventioner, tværfagligt samarbejde, 
-                        og hvordan du kan hjælpe med at implementere trauma-informerede tilgange.
-                      </p>
-                    )}
+              <div className="bg-emerald-800/30 p-6 rounded-xl border border-emerald-600/40">
+                <h3 className="text-xl font-semibold text-emerald-100 mb-4">30-minutters Demo Session</h3>
+                
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white font-semibold text-sm">1</span>
+                    </div>
+                    <div>
+                      <p className="text-emerald-200/90 text-sm">Vælg din rolle</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white font-semibold text-sm">2</span>
+                    </div>
+                    <div>
+                      <p className="text-emerald-200/90 text-sm">Oplev Heidi casen</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white font-semibold text-sm">3</span>
+                    </div>
+                    <div>
+                      <p className="text-emerald-200/90 text-sm">Få AI feedback</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="flex gap-4">
-                <button
-                  onClick={handleFeedback}
-                  className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
-                >
-                  Få AI Feedback
-                </button>
-                <button
-                  onClick={resetSession}
-                  className="bg-gray-500 hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
-                >
-                  Stop Session
-                </button>
+                {/* Two buttons side by side */}
+                <div className="flex gap-3">
+                  <a
+                    href="/demo/heidi"
+                    className="flex-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-colors text-sm text-center"
+                  >
+                    Start Demo på Mobil
+                  </a>
+                  <button
+                    onClick={handleOptimalSolution}
+                    className="flex-1 px-4 py-2 bg-emerald-700/60 hover:bg-emerald-600 text-emerald-100 font-medium rounded-lg transition-colors text-sm"
+                  >
+                    Se Optimal Løsning
+                  </button>
+                </div>
               </div>
             </div>
-          )}
+
+            {/* Role Selection */}
+            <div className="border-t border-emerald-600/30 pt-6">
+              <h3 className="text-xl font-semibold text-emerald-100 mb-6 text-center">Vælg din rolle</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  { id: 'teacher', name: 'Lærer', icon: '👩‍🏫', desc: 'Klasselærer eller fagpersonale', role: 'teacher' },
+                  { id: 'parent', name: 'Forælder', icon: '👨‍👩‍👧', desc: 'Forælder til barnet', role: 'parent' },
+                  { id: 'specialist', name: 'Specialist', icon: '👩‍⚕️', desc: 'Psykolog, terapeut', role: 'specialist' }
+                ].map((role) => (
+                  <a 
+                    key={role.id} 
+                    href={`/demo/heidi?role=${role.role}`}
+                    className="cursor-pointer group block"
+                  >
+                    <div className="p-6 rounded-lg border-2 border-emerald-600/50 hover:border-emerald-500 
+                                    bg-emerald-800/30 hover:bg-emerald-700/40 transition-all duration-300 
+                                    transform hover:scale-105 backdrop-blur-sm">
+                      <div className="text-center">
+                        <span className="text-4xl mb-4 block">{role.icon}</span>
+                        <h4 className="text-xl font-semibold text-emerald-100 mb-2">{role.name}</h4>
+                        <p className="text-emerald-200/70 text-sm">{role.desc}</p>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
+        
       </div>
     </div>
   );

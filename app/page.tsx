@@ -320,9 +320,103 @@ export default function HomePage() {
       </section>
 
       {/* QR Demo Section */}
-      <section className="py-16 bg-gray-800">
+      <section id="demo" className="py-16 bg-gray-800">
         <div className="container mx-auto px-4">
           <QRDemo />
+        </div>
+      </section>
+
+      {/* Rollespil Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-emerald-500 mb-4">
+              🎭 Oplev Perspektiver
+            </h2>
+            <p className="text-xl text-gray-300 text-center mb-12 max-w-3xl mx-auto">
+              Forstå hvordan det du siger modtages
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Forælder Rollespil */}
+              <Link href="/rollespil?type=parent" className="group">
+                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
+                  <div className="text-4xl mb-4">👨‍👩‍👧</div>
+                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
+                    Forælder Rollespil
+                  </h3>
+                  <p className="text-gray-300 mb-4">
+                    "Skærm-tid meltdown" - Oplev hvordan dine ord påvirker dit barn
+                  </p>
+                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
+                    Start rollespil
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+
+              {/* Lærer Rollespil */}
+              <Link href="/rollespil?type=teacher" className="group">
+                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
+                  <div className="text-4xl mb-4">👩‍🏫</div>
+                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
+                    Lærer Rollespil
+                  </h3>
+                  <p className="text-gray-300 mb-4">
+                    Øv kommunikation mellem lærer, barn og forældre
+                  </p>
+                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
+                    Start rollespil
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+
+              {/* Fagperson Rollespil */}
+              <Link href="/rollespil?type=professional" className="group">
+                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
+                  <div className="text-4xl mb-4">✂️</div>
+                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
+                    Fagperson Rollespil
+                  </h3>
+                  <p className="text-gray-300 mb-4">
+                    Træn situationer med frisør, tandlæge og andre fagfolk
+                  </p>
+                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
+                    Start rollespil
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quiz Section */}
+      <section className="py-16 bg-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-emerald-500 mb-4">
+              🧠 Test Din Viden
+            </h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Hurtige quizzer med personlig feedback - lær af dine svar
+            </p>
+            
+            <Link 
+              href="/quiz" 
+              className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
+            >
+              Start Quiz 🎯
+            </Link>
+          </div>
         </div>
       </section>
 

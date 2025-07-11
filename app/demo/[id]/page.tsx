@@ -1,18 +1,29 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 export default function DemoPage() {
   const params = useParams();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [selectedRole, setSelectedRole] = useState('');
   const [timeLeft, setTimeLeft] = useState(30 * 60);
   const [demoStarted, setDemoStarted] = useState(false);
   const [userSolution, setUserSolution] = useState('');
   const [showFeedback, setShowFeedback] = useState(false);
   const [feedback, setFeedback] = useState('');
+  const [showOptimal, setShowOptimal] = useState(false);
+
+  // Check URL for pre-selected role
+  useEffect(() => {
+    const roleFromUrl = searchParams.get('role');
+    if (roleFromUrl && ['teacher', 'parent', 'specialist'].includes(roleFromUrl)) {
+      setSelectedRole(roleFromUrl);
+      setDemoStarted(true); // Start demo automatically if role is pre-selected
+    }
+  }, [searchParams]);
 
   // Timer
   useEffect(() => {
@@ -25,7 +36,7 @@ export default function DemoPage() {
     }
   }, [timeLeft, demoStarted, router]);
 
-  // Formater tid
+  // Format time
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -52,7 +63,6 @@ export default function DemoPage() {
       return;
     }
 
-    // Simuleret AI feedback
     const feedbackText = `Godt arbejde! Her er feedback på din løsning:
 
 ✅ Styrker:
@@ -72,12 +82,17 @@ Dette er en demo-version. I den fulde version får du personlig AI-feedback base
     setShowFeedback(true);
   };
 
-  // Hvis demo er startet, vis demo interface
+  const showOptimalSolution = () => {
+    setShowOptimal(true);
+    setShowFeedback(false);
+  };
+
+  // If demo is started, show demo interface
   if (demoStarted) {
     return (
       <div className="min-h-screen bg-gray-900 py-8">
         <div className="container mx-auto px-4">
-          {/* Header med timer */}
+          {/* Header with timer */}
           <div className="bg-gray-800 rounded-lg p-4 mb-8 flex justify-between items-center">
             <h1 className="text-2xl font-bold text-emerald-500">CDT Demo - {roles.find(r => r.id === selectedRole)?.name}</h1>
             <div className="text-xl font-mono text-emerald-400">
@@ -85,7 +100,7 @@ Dette er en demo-version. I den fulde version får du personlig AI-feedback base
             </div>
           </div>
 
-          {/* Demo indhold */}
+          {/* Demo content */}
           <div className="bg-gray-800 rounded-lg p-8">
             <h2 className="text-xl font-bold text-gray-100 mb-4">Case: Støtte til Heidi</h2>
             <div className="prose prose-invert max-w-none">
@@ -121,13 +136,15 @@ Dette er en demo-version. I den fulde version får du personlig AI-feedback base
                            font-semibold transition-colors">
                   Få AI Feedback
                 </button>
-                <button className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg 
-                                 font-semibold transition-colors">
+                <button 
+                  onClick={showOptimalSolution}
+                  className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg 
+                           font-semibold transition-colors">
                   Se Optimal Løsning
                 </button>
               </div>
 
-              {/* Vis feedback */}
+              {/* Show feedback */}
               {showFeedback && (
                 <div className="mt-6 p-6 bg-gray-700 rounded-lg border border-emerald-500">
                   <h3 className="text-lg font-semibold text-emerald-400 mb-3">AI Feedback:</h3>
@@ -145,7 +162,7 @@ Dette er en demo-version. I den fulde version får du personlig AI-feedback base
             </div>
           </div>
 
-          {/* Afslut demo */}
+          {/* End demo */}
           <div className="mt-8 text-center">
             <Link href="/" className="text-gray-400 hover:text-gray-300 underline">
               Afslut demo og vend tilbage
@@ -156,7 +173,7 @@ Dette er en demo-version. I den fulde version får du personlig AI-feedback base
     );
   }
 
-  // Rolle-valg interface
+  // Role selection interface (only shown if no role in URL)
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
       <div className="max-w-4xl w-full">

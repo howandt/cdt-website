@@ -1,5 +1,6 @@
 
 import BackButton from '../components/BackButton';
+import Link from 'next/link';
 export default function Features() {
   return (
     <div className="min-h-screen bg-gray-900">
@@ -172,9 +173,12 @@ export default function Features() {
           <h2 className="text-2xl font-bold text-emerald-400 mb-6">
             Klar til at revolutionere din tilgang til børn med diagnoser?
           </h2>
-          <button className="bg-emerald-500 text-white px-8 py-4 rounded-lg hover:bg-emerald-600 transition font-bold text-lg">
+          <Link 
+            href="/kontakt?plan=pro" 
+            className="inline-block bg-emerald-500 text-white px-8 py-4 rounded-lg hover:bg-emerald-600 transition font-bold text-lg"
+          >
             Start Din Gratis Prøveperiode
-          </button>
+          </Link>
         </div>
       </main>
     </div>
