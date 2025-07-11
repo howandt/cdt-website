@@ -104,6 +104,12 @@ export default function GoogleTranslate() {
       </div>
 
       <style jsx global>{`
+        /* FORCE RESET - Override ALL Google Translate styling */
+        *, *::before, *::after {
+          filter: none !important;
+          opacity: 1 !important;
+        }
+        
         /* Completely hide Google Translate widget */
         .goog-te-gadget-simple {
           display: none !important;
@@ -131,6 +137,62 @@ export default function GoogleTranslate() {
         body {
           top: 0px !important;
           margin-top: 0px !important;
+          filter: none !important;
+          opacity: 1 !important;
+        }
+        
+        /* FORCE ORIGINAL COLORS AND LAYOUT */
+        .bg-white {
+          background-color: white !important;
+        }
+        
+        .bg-gray-50 {
+          background-color: #f9fafb !important;
+        }
+        
+        .bg-gray-100 {
+          background-color: #f3f4f6 !important;
+        }
+        
+        .bg-blue-50 {
+          background-color: #eff6ff !important;
+        }
+        
+        .bg-green-50 {
+          background-color: #f0fdf4 !important;
+        }
+        
+        .bg-green-500 {
+          background-color: #10b981 !important;
+        }
+        
+        .bg-green-600 {
+          background-color: #059669 !important;
+        }
+        
+        .bg-blue-600 {
+          background-color: #2563eb !important;
+        }
+        
+        .text-gray-800 {
+          color: #1f2937 !important;
+        }
+        
+        .text-gray-700 {
+          color: #374151 !important;
+        }
+        
+        .text-white {
+          color: white !important;
+        }
+        
+        /* Force flex layouts to work */
+        .flex {
+          display: flex !important;
+        }
+        
+        .grid {
+          display: grid !important;
         }
         
         /* Hide any other Google Translate elements */
@@ -152,9 +214,10 @@ export default function GoogleTranslate() {
           visibility: hidden !important;
         }
         
-        /* Remove any translation hover effects */
-        font[style*="color: rgb(68, 68, 68)"] {
+        /* Override ALL Google Translate font styling */
+        font {
           color: inherit !important;
+          background: inherit !important;
         }
         
         /* Hide Google logo and branding */
@@ -164,34 +227,6 @@ export default function GoogleTranslate() {
         
         .goog-te-banner-frame img {
           display: none !important;
-        }
-        
-        /* Force normal text colors - override Google Translate styling */
-        body, body *, html, html * {
-          color: inherit !important;
-          opacity: 1 !important;
-          filter: none !important;
-        }
-        
-        /* Remove Google Translate gray overlay/filter */
-        body {
-          filter: none !important;
-          opacity: 1 !important;
-        }
-        
-        /* Fix all elements that Google might have grayed out */
-        div, p, h1, h2, h3, h4, h5, h6, span, button, a {
-          filter: none !important;
-          opacity: 1 !important;
-          color: inherit !important;
-        }
-        
-        /* Specifically fix button and text colors */
-        button, select, input {
-          color: #374151 !important;
-          background-color: white !important;
-          opacity: 1 !important;
-          filter: none !important;
         }
         
         /* Style our language selector button with specific class */
@@ -212,16 +247,6 @@ export default function GoogleTranslate() {
           background-color: #f3f4f6 !important;
           border-color: #3b82f6 !important;
           box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5) !important;
-        }
-        
-        /* Fix any gray text Google Translate might have added */
-        font[color="#777777"], font[color="rgb(119, 119, 119)"] {
-          color: inherit !important;
-        }
-        
-        /* Override any Google Translate font styling */
-        font[style*="color"] {
-          color: inherit !important;
         }
       `}</style>
     </div>
