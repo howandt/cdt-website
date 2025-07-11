@@ -88,7 +88,7 @@ export default function GoogleTranslate() {
         <select 
           value={currentLang}
           onChange={(e) => changeLanguage(e.target.value)}
-          className="bg-white border border-gray-300 rounded-lg px-3 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none cursor-pointer min-w-0 w-auto"
+          className="language-selector bg-gray-100 border border-gray-300 rounded-lg px-3 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none cursor-pointer min-w-0 w-auto text-gray-800"
         >
           {languages.map((lang) => (
             <option key={lang.code} value={lang.code}>
@@ -194,18 +194,24 @@ export default function GoogleTranslate() {
           filter: none !important;
         }
         
-        /* Style our language selector button properly */
-        select.bg-white {
-          background-color: #f8fafc !important;
+        /* Style our language selector button with specific class */
+        .language-selector {
+          background-color: #f3f4f6 !important;
           border: 1px solid #d1d5db !important;
-          color: #374151 !important;
+          color: #1f2937 !important;
           opacity: 1 !important;
           filter: none !important;
         }
         
-        select.bg-white:hover {
-          background-color: #f1f5f9 !important;
+        .language-selector:hover {
+          background-color: #e5e7eb !important;
           border-color: #9ca3af !important;
+        }
+        
+        .language-selector:focus {
+          background-color: #f3f4f6 !important;
+          border-color: #3b82f6 !important;
+          box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5) !important;
         }
         
         /* Fix any gray text Google Translate might have added */
