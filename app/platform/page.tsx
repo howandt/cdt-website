@@ -1,4 +1,4 @@
-
+'use client';
 import Link from 'next/link';
 import QRDemo from '../components/QRDemo';
 
@@ -326,75 +326,135 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Rollespil Section */}
+      {/* Børnenes Verden Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-emerald-500 mb-4">
-              🎭 Oplev Perspektiver
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-orange-400 mb-4">
+              🧠 Børnenes Verden
             </h2>
             <p className="text-xl text-gray-300 text-center mb-12 max-w-3xl mx-auto">
-              Forstå hvordan det du siger modtages
+              For første gang: oplev hvad der sker <span className="text-orange-400 font-semibold">indeni børnene</span> når vi voksne reagerer
             </p>
             
             <div className="grid md:grid-cols-3 gap-6">
-              {/* Forælder Rollespil */}
-              <Link href="/rollespil?type=parent" className="group">
-                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
-                  <div className="text-4xl mb-4">👨‍👩‍👧</div>
-                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                    Forælder Rollespil
+              {/* Når forældre skændes */}
+              <div className="group cursor-pointer">
+                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-red-500">
+                  <div className="text-4xl mb-4">💔</div>
+                  <h3 className="text-xl font-bold text-red-400 mb-2 group-hover:text-red-300 transition-colors">
+                    Når I Skændes
                   </h3>
                   <p className="text-gray-300 mb-4">
-                    "Skærm-tid meltdown" - Oplev hvordan dine ord påvirker dit barn
+                    "Hvorfor råber mor og far ad hinanden?" - Mærk barnets angst og hjælpeløshed
                   </p>
-                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                    Start rollespil
+                  
+                  {/* Lille preview tekst der vises on hover */}
+                  <div className="hidden group-hover:block mt-4 p-3 bg-red-900/30 rounded-lg border border-red-600/30">
+                    <p className="text-red-200 text-sm italic mb-2">
+                      💭 Barnets tanker:
+                    </p>
+                    <p className="text-red-300 text-xs">
+                      "Er det min skyld?" • "Hvor skal jeg gemme mig?" • "Bliver de skilt?"
+                    </p>
+                    <p className="text-red-400 text-xs mt-2 font-semibold">
+                      Klik for at se fulde påvirkning →
+                    </p>
+                  </div>
+                  
+                  <span className="text-red-500 font-semibold flex items-center gap-1 mt-4">
+                    Oplev som barn
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </span>
                 </div>
-              </Link>
-
-              {/* Lærer Rollespil */}
-              <Link href="/rollespil?type=teacher" className="group">
-                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
-                  <div className="text-4xl mb-4">👩‍🏫</div>
-                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                    Lærer Rollespil
-                  </h3>
-                  <p className="text-gray-300 mb-4">
-                    Øv kommunikation mellem lærer, barn og forældre
-                  </p>
-                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                    Start rollespil
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-
-              {/* Fagperson Rollespil */}
-              <Link href="/rollespil?type=professional" className="group">
-                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
-                  <div className="text-4xl mb-4">✂️</div>
-                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                    Fagperson Rollespil
-                  </h3>
-                  <p className="text-gray-300 mb-4">
-                    Træn situationer med frisør, tandlæge og andre fagfolk
-                  </p>
-                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                    Start rollespil
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
               </div>
+
+              {/* Når voksne bliver frustrerede */}
+              <div className="group cursor-pointer">
+                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-yellow-500">
+                  <div className="text-4xl mb-4">😰</div>
+                  <h3 className="text-xl font-bold text-yellow-400 mb-2 group-hover:text-yellow-300 transition-colors">
+                    Når Du Bliver Sur
+                  </h3>
+                  <p className="text-gray-300 mb-4">
+                    "Jeg gør altid noget forkert" - Føl barnets selvbebrejdelse og forvirring
+                  </p>
+                  
+                  {/* Lille preview tekst der vises on hover */}
+                  <div className="hidden group-hover:block mt-4 p-3 bg-yellow-900/30 rounded-lg border border-yellow-600/30">
+                    <p className="text-yellow-200 text-sm italic mb-2">
+                      💭 Barnets tanker:
+                    </p>
+                    <p className="text-yellow-300 text-xs">
+                      "Jeg er dum" • "Mor kan ikke lide mig" • "Jeg giver op"
+                    </p>
+                    <p className="text-yellow-400 text-xs mt-2 font-semibold">
+                      Klik for at se fulde påvirkning →
+                    </p>
+                  </div>
+                  
+                  <span className="text-yellow-500 font-semibold flex items-center gap-1 mt-4">
+                    Oplev som barn
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
+              {/* Når der kommanderes og irettesættes */}
+              <div className="group cursor-pointer">
+                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-purple-500">
+                  <div className="text-4xl mb-4">🤐</div>
+                  <h3 className="text-xl font-bold text-purple-400 mb-2 group-hover:text-purple-300 transition-colors">
+                    Når Du Kommanderer
+                  </h3>
+                  <p className="text-gray-300 mb-4">
+                    "Jeg lukker bare ned" - Oplev hvordan barnet trækker sig indad og giver op
+                  </p>
+                  
+                  {/* Lille preview tekst der vises on hover */}
+                  <div className="hidden group-hover:block mt-4 p-3 bg-purple-900/30 rounded-lg border border-purple-600/30">
+                    <p className="text-purple-200 text-sm italic mb-2">
+                      💭 Barnets tanker:
+                    </p>
+                    <p className="text-purple-300 text-xs">
+                      "Det gider jeg ikke høre" • "Mine følelser betyder intet" • "Jeg giver op"
+                    </p>
+                    <p className="text-purple-400 text-xs mt-2 font-semibold">
+                      Klik for at se fulde påvirkning →
+                    </p>
+                  </div>
+                  
+                  <span className="text-purple-500 font-semibold flex items-center gap-1 mt-4">
+                    Oplev som barn
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Kraftfuld besked */}
+            <div className="mt-12 text-center">
+              <div className="bg-gradient-to-r from-orange-900/40 to-red-900/40 rounded-xl p-6 border border-orange-600/40 max-w-4xl mx-auto">
+                <div className="text-4xl mb-4">⚠️</div>
+                <h3 className="text-xl font-semibold text-orange-300 mb-3">
+                  Revolutionær Empati-Træning
+                </h3>
+                <p className="text-orange-200 leading-relaxed">
+                  Som den første platform i verden giver CDT dig mulighed for at <strong>træde ind i børnenes følelsesmæssige verden</strong>. 
+                  Oplev på egen krop hvordan dine ord, din stemme og dine reaktioner påvirker dem indeni - 
+                  <span className="text-orange-400 font-semibold"> før det er for sent.</span>
+                </p>
+                <div className="mt-4 text-sm text-orange-300/80 italic">
+                  💡 Kun ved at forstå børnenes perspektiv kan vi virkelig ændre vores tilgang
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

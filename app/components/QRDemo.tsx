@@ -355,6 +355,8 @@ export default function QRDemo() {
               </div>
             </div>
 
+            /* Erstat denne sektion i QRDemo.tsx (omkring linje 285-340) */
+
             {/* Rollespil sektion inde i QR Demo */}
             <div className="mt-16 pt-12 border-t border-gray-700">
               <h3 className="text-2xl md:text-3xl font-bold text-center text-emerald-500 mb-3">
@@ -365,18 +367,18 @@ export default function QRDemo() {
               </p>
             
               <div className="grid md:grid-cols-3 gap-6">
-                {/* Forælder Rollespil */}
-                <Link href="/rollespil?type=parent" className="group">
+                {/* Forælder Demo - NU AKTIV */}
+                <Link href="/demo/test?role=parent" className="group">
                   <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
                     <div className="text-4xl mb-4">👨‍👩‍👧</div>
                     <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                      Forælder Rollespil
+                      Forælder Demo
                     </h3>
                     <p className="text-gray-300 mb-4">
-                      "Skærm-tid meltdown" - Oplev hvordan dine ord påvirker dit barn
+                      "Elias søskendejalouxi" - Oplev hvordan dine ord påvirker dit barn
                     </p>
                     <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                      Start rollespil
+                      Start demo
                       <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -384,43 +386,43 @@ export default function QRDemo() {
                   </div>
                 </Link>
 
-                {/* Lærer Rollespil - Kommer snart */}
-                <div className="group cursor-not-allowed opacity-60">
-                  <div className="bg-gray-800 rounded-xl p-6 h-full border-2 border-gray-700">
+                {/* Lærer Demo - NU AKTIV */}
+                <Link href="/demo/test?role=teacher" className="group">
+                  <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-blue-500">
                     <div className="text-4xl mb-4">👩‍🏫</div>
-                    <h3 className="text-xl font-bold text-gray-400 mb-2">
-                      Lærer Rollespil
+                    <h3 className="text-xl font-bold text-blue-400 mb-2 group-hover:text-blue-300 transition-colors">
+                      Lærer Demo
                     </h3>
-                    <p className="text-gray-400 mb-4">
-                      Øv kommunikation mellem lærer, barn og forældre
+                    <p className="text-gray-300 mb-4">
+                      "Oliver klasseværelse" - Øv kommunikation mellem lærer, barn og forældre
                     </p>
-                    <span className="text-gray-500 font-semibold flex items-center gap-1">
-                      Kommer snart
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <span className="text-blue-500 font-semibold flex items-center gap-1">
+                      Start demo
+                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </span>
                   </div>
-                </div>
+                </Link>
 
-                {/* Fagperson Rollespil - Kommer snart */}
-                <div className="group cursor-not-allowed opacity-60">
-                  <div className="bg-gray-800 rounded-xl p-6 h-full border-2 border-gray-700">
+                {/* Specialist Demo - NU AKTIV */}
+                <Link href="/demo/test?role=specialist" className="group">
+                  <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-purple-500">
                     <div className="text-4xl mb-4">✂️</div>
-                    <h3 className="text-xl font-bold text-gray-400 mb-2">
-                      Fagperson Rollespil
+                    <h3 className="text-xl font-bold text-purple-400 mb-2 group-hover:text-purple-300 transition-colors">
+                      Specialist Demo
                     </h3>
-                    <p className="text-gray-400 mb-4">
-                      Træn situationer med frisør, tandlæge og andre fagfolk
+                    <p className="text-gray-300 mb-4">
+                      "Sofia masking" - Træn situationer med frisør, tandlæge og andre fagfolk
                     </p>
-                    <span className="text-gray-500 font-semibold flex items-center gap-1">
-                      Kommer snart
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <span className="text-purple-500 font-semibold flex items-center gap-1">
+                      Start demo
+                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </span>
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
