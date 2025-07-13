@@ -1,448 +1,168 @@
-
-import Link from 'next/link';
-import QRDemo from './components/QRDemo';
-
-export default function HomePage() {
-
+export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-900">
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-emerald-500 mb-6">
-            CDT Platform
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white">
+      {/* Hero Section - Above the fold */}
+      <section className="relative px-4 py-8 min-h-screen flex items-center">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative max-w-5xl mx-auto text-center">
+          
+          {/* Badge */}
+          <div className="inline-flex items-center bg-gradient-to-r from-yellow-400 to-orange-400 text-black px-6 py-2 rounded-full font-bold text-sm mb-6 animate-pulse">
+            🌟 VERDENS FØRSTE LEVENDE FAGBOG
+          </div>
+
+          {/* Main Headline */}
+          <h1 className="text-4xl md:text-7xl font-black mb-6 leading-tight">
+            Hej! Jeg er 
+            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              {" "}Heidi{" "}
+            </span>
+            🌱
           </h1>
-          <p className="text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-  Intelligent træningsplatform for professionelle og forældre der arbejder med børn med særlige behov
-</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link 
-              href="/om-cdt" 
-              className="inline-block bg-emerald-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-emerald-700 transition-colors shadow-lg"
+
+          {/* Subheadline */}
+          <p className="text-xl md:text-3xl font-semibold mb-8 text-cyan-100 max-w-4xl mx-auto">
+            Din intelligente partner der <strong>aldrig bliver forældet</strong> og 
+            altid ser verden fra <strong>børnenes perspektiv</strong>
+          </p>
+
+          {/* Key Points */}
+          <div className="grid md:grid-cols-3 gap-4 mb-8 max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/20">
+              <div className="text-3xl mb-2">🔄</div>
+              <h3 className="font-bold text-cyan-300">Opdateres løbende</h3>
+              <p className="text-sm text-gray-300">Ny forskning hver måned</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/20">
+              <div className="text-3xl mb-2">👶</div>
+              <h3 className="font-bold text-purple-300">Børnenes perspektiv</h3>
+              <p className="text-sm text-gray-300">Altid barnets verden først</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/20">
+              <div className="text-3xl mb-2">🧠</div>
+              <h3 className="font-bold text-pink-300">Intelligent AI</h3>
+              <p className="text-sm text-gray-300">Personlig tilpasning</p>
+            </div>
+          </div>
+
+          {/* CTA Button - HIGH UP! */}
+          <div className="mb-12">
+            <a 
+              href="/platform"
+              className="inline-block bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-black py-6 px-12 rounded-2xl text-xl md:text-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-purple-500/25"
             >
-              Læs mere om CDT
-            </Link>
-            <Link 
-              href="/indhold" 
-              className="inline-block bg-gray-800 text-emerald-400 border-2 border-emerald-500 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-700 transition-colors"
-            >
-              Se platform indhold
-            </Link>
+              Oplev den levende fagbog nu! →
+            </a>
+          </div>
+
+          {/* Bridge Visual */}
+          <div className="grid md:grid-cols-3 gap-8 items-center max-w-4xl mx-auto mb-8">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <span className="text-3xl">🏫</span>
+              </div>
+              <h3 className="font-bold text-blue-300">Skole</h3>
+              <p className="text-sm text-blue-200">Lærere & specialister</p>
+            </div>
+            
+            <div className="text-center relative">
+              <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl animate-bounce">
+                <span className="text-4xl">🌉</span>
+              </div>
+              <h3 className="font-bold text-green-300 text-xl">HEIDI</h3>
+              <p className="text-sm text-green-200 font-semibold">Din intelligente bro</p>
+              
+              {/* Bridge lines */}
+              <div className="hidden md:block absolute top-10 -left-16 w-16 h-1 bg-gradient-to-r from-transparent to-green-400"></div>
+              <div className="hidden md:block absolute top-10 -right-16 w-16 h-1 bg-gradient-to-l from-transparent to-green-400"></div>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <span className="text-3xl">🏠</span>
+              </div>
+              <h3 className="font-bold text-yellow-300">Hjem</h3>
+              <p className="text-sm text-yellow-200">Forældre & familie</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What Makes Us Unique */}
+      <section className="px-4 py-16 bg-black/30">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-black text-center mb-12">
+            <span className="bg-gradient-to-r from-yellow-400 to-red-400 bg-clip-text text-transparent">
+              Hvorfor CDT er revolutionerende
+            </span>
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-br from-red-500/20 to-pink-500/20 rounded-2xl p-8 border border-red-500/30">
+              <h3 className="text-2xl font-bold text-red-300 mb-4">📚 Gamle fagbøger</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-center"><span className="text-red-500 mr-2">✗</span> Samler støv i reolen</li>
+                <li className="flex items-center"><span className="text-red-500 mr-2">✗</span> Forældede metoder</li>
+                <li className="flex items-center"><span className="text-red-500 mr-2">✗</span> Kun teoretisk viden</li>
+                <li className="flex items-center"><span className="text-red-500 mr-2">✗</span> Generisk tilgang</li>
+              </ul>
+            </div>
+            
+            <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl p-8 border border-green-500/30">
+              <h3 className="text-2xl font-bold text-green-300 mb-4">🌱 CDT Levende Fagbog</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-center"><span className="text-green-500 mr-2">✓</span> Direkte i din hånd</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2">✓</span> Opdateres hver måned</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2">✓</span> Praksis-baseret læring</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2">✓</span> Personlig AI-rådgiver</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Child Perspective Focus */}
+      <section className="px-4 py-16">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-3 rounded-full font-bold text-lg mb-8">
+            👶 BØRNENES PERSPEKTIV FØRST
           </div>
           
-          {/* Trust indicators */}
-          <div className="flex flex-wrap justify-center gap-8 text-gray-400">
-            <div className="flex items-center gap-2">
-              <span className="text-3xl">🎓</span>
-              <span>Evidensbaseret</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-3xl">🤖</span>
-              <span>AI-drevet læring</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-3xl">🌟</span>
-              <span>Certificering</span>
-            </div>
-          </div>
-        </div>
-      </section>
+          <h2 className="text-3xl md:text-5xl font-black mb-8">
+            Sådan gør vi en forskel
+          </h2>
+          
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Alt i CDT starter med spørgsmålet: <strong className="text-cyan-300">"Hvordan føles det for barnet?"</strong> 
+            Vi bygger bro mellem voksenverdenen og børnenes oplevelse, så alle kan forstå hinanden bedre.
+          </p>
 
-      {/* Platform Features Overview */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-emerald-500 mb-4">
-              Alt hvad du behøver i én platform
-            </h2>
-            <p className="text-xl text-gray-300 text-center mb-12 max-w-3xl mx-auto">
-              CDT samler alle værktøjer og ressourcer du har brug for til at støtte børn med særlige behov
+          <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-8 backdrop-blur border border-purple-500/30">
+            <h3 className="text-2xl font-bold text-purple-300 mb-4">🔄 Levende opdateringer</h3>
+            <p className="text-gray-300">
+              <strong>Nye cases hver måned</strong> · <strong>Seneste forskning hver kvartal</strong> · 
+              <strong>Bruger-feedback integreres løbende</strong>
             </p>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Diagnose Bibliotek */}
-              <Link href="/indhold#biblioteker" className="group">
-                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
-                  <div className="text-4xl mb-4">📚</div>
-                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                    Diagnose Bibliotek
-                  </h3>
-                  <p className="text-gray-300 mb-4">
-                    Omfattende information om 50+ diagnoser med symptomer og behandlingsmetoder
-                  </p>
-                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                    Udforsk biblioteket 
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-
-              {/* Case Bibliotek */}
-              <Link href="/indhold#biblioteker" className="group">
-                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
-                  <div className="text-4xl mb-4">💼</div>
-                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                    Case Bibliotek
-                  </h3>
-                  <p className="text-gray-300 mb-4">
-                    100+ virkelige cases til praktisk læring med video-demonstrationer
-                  </p>
-                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                    Se cases
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-
-              {/* komorbid Bibliotek */}
-              <Link href="/indhold#biblioteker" className="group">
-                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
-                  <div className="text-4xl mb-4">🗣️</div>
-                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                    Komorbid Bibliotek
-                  </h3>
-                  <p className="text-gray-300 mb-4">
-                    Flere psykiske lidelser samtidigt, kan maskere eller forstærke symptomer.
-                  </p>
-                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                    Se værktøjer
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-
-              {/* PBL Projekter */}
-              <Link href="/indhold#biblioteker" className="group">
-                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
-                  <div className="text-4xl mb-4">🎯</div>
-                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                    PBL Projekter
-                  </h3>
-                  <p className="text-gray-300 mb-4">
-                    Problem-baseret læring med AI-mentoring fra Heidi
-                  </p>
-                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                    Start projekt
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-
-              {/* Quiz Bank */}
-              <Link href="/indhold#biblioteker" className="group">
-                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
-                  <div className="text-4xl mb-4">🧩</div>
-                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                    Quiz Bank
-                  </h3>
-                  <p className="text-gray-300 mb-4">
-                    1000+ spørgsmål med adaptive sværhedsgrader og detaljeret feedback
-                  </p>
-                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                    Test din viden
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-
-              {/* Rollespil Motor */}
-              <Link href="/indhold#biblioteker" className="group">
-                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
-                  <div className="text-4xl mb-4">🎭</div>
-                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                    Rollespil Motor
-                  </h3>
-                  <p className="text-gray-300 mb-4">
-                    AI-drevne samtaler til at øve svære situationer sikkert
-                  </p>
-                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                    Øv samtaler
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Basic vs PRO */}
-      <section className="py-16 bg-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-emerald-500 mb-12">
-              Vælg den rette løsning for dig
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Basic Plan */}
-              <div className="bg-gray-900 rounded-xl p-8 border-2 border-gray-700">
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-emerald-400 mb-2">CDT Basic</h3>
-                  <p className="text-gray-400">Perfekt til at komme i gang</p>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-500 mt-1">✓</span>
-                    <span className="text-gray-300">15+ kernediagnoser</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-500 mt-1">✓</span>
-                    <span className="text-gray-300">20 grundcases</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-500 mt-1">✓</span>
-                    <span className="text-gray-300">Basis kommunikationsværktøjer</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-500 mt-1">✓</span>
-                    <span className="text-gray-300">200+ quiz spørgsmål</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-500 mt-1">✓</span>
-                    <span className="text-gray-300">Grundlæggende certificering</span>
-                  </li>
-                </ul>
-                <Link 
-                  href="/indhold" 
-                  className="block text-center bg-gray-700 text-emerald-400 px-6 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors"
-                >
-                  Læs mere om Basic
-                </Link>
-              </div>
-
-              {/* PRO Plan */}
-              <div className="bg-gray-900 rounded-xl p-8 border-2 border-emerald-500 relative transform hover:scale-105 transition-transform">
-                <div className="absolute -top-4 right-8 bg-yellow-400 text-gray-800 px-4 py-1 rounded-full font-bold text-sm shadow-lg">
-                  ANBEFALET
-                </div>
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-emerald-400 mb-2">CDT PRO ⭐</h3>
-                  <p className="text-gray-400">Den komplette løsning</p>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-500 mt-1">✓</span>
-                    <span className="text-gray-300">50+ diagnoser med løbende opdateringer</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-500 mt-1">✓</span>
-                    <span className="text-gray-300">100+ cases med video-demonstrationer</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-500 mt-1">✓</span>
-                    <span className="text-gray-300">Avancerede Komorbid værktøjer</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-500 mt-1">✓</span>
-                    <span className="text-gray-300">1000+ adaptive quiz spørgsmål</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-500 mt-1">✓</span>
-                    <span className="text-gray-300">AI-drevet rollespil med stemmeanalyse</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-500 mt-1">✓</span>
-                    <span className="text-gray-300">Fuld certificering & Heidi AI-mentor</span>
-                  </li>
-                </ul>
-                <Link 
-                  href="/indhold" 
-                  className="block text-center bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-all shadow-lg"
-                >
-                  Læs mere om PRO
-                </Link>
-              </div>
-            </div>
-
-            <div className="text-center mt-8">
-              <Link 
-                href="/kontakt" 
-                className="inline-block text-emerald-400 hover:text-emerald-300 font-semibold"
-              >
-                Har du spørgsmål? Kontakt os →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How it Works */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-emerald-500 mb-12">
-              Sådan fungerer CDT
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-emerald-500 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold shadow-lg">
-                  1
-                </div>
-                <h3 className="text-xl font-semibold text-emerald-400 mb-2">Vælg dit fokusområde</h3>
-                <p className="text-gray-300">Start med diagnosebiblioteket eller vælg et specifikt læringsmodul</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-emerald-500 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold shadow-lg">
-                  2
-                </div>
-                <h3 className="text-xl font-semibold text-emerald-400 mb-2">Lær i dit tempo</h3>
-                <p className="text-gray-300">Gennemgå cases, øv med rollespil og test din viden</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-emerald-500 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold shadow-lg">
-                  3
-                </div>
-                <h3 className="text-xl font-semibold text-emerald-400 mb-2">Bliv certificeret</h3>
-                <p className="text-gray-300">Opnå certificering og fortsæt med at udvikle dine kompetencer</p>
-              </div>
-            </div>
-            <Link 
-              href="/hvordan-det-virker" 
-              className="inline-block mt-8 bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
-            >
-              Læs mere om processen →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* QR Demo Section */}
-      <section id="demo" className="py-16 bg-gray-800">
-        <div className="container mx-auto px-4">
-          <QRDemo />
-        </div>
-      </section>
-
-      {/* Rollespil Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-emerald-500 mb-4">
-              🎭 Oplev Perspektiver
-            </h2>
-            <p className="text-xl text-gray-300 text-center mb-12 max-w-3xl mx-auto">
-              Forstå hvordan det du siger modtages
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Forælder Rollespil */}
-              <Link href="/rollespil?type=parent" className="group">
-                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
-                  <div className="text-4xl mb-4">👨‍👩‍👧</div>
-                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                    Forælder Rollespil
-                  </h3>
-                  <p className="text-gray-300 mb-4">
-                    "Skærm-tid meltdown" - Oplev hvordan dine ord påvirker dit barn
-                  </p>
-                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                    Start rollespil
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-
-              {/* Lærer Rollespil */}
-              <Link href="/rollespil?type=teacher" className="group">
-                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
-                  <div className="text-4xl mb-4">👩‍🏫</div>
-                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                    Lærer Rollespil
-                  </h3>
-                  <p className="text-gray-300 mb-4">
-                    Øv kommunikation mellem lærer, barn og forældre
-                  </p>
-                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                    Start rollespil
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-
-              {/* Fagperson Rollespil */}
-              <Link href="/rollespil?type=professional" className="group">
-                <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
-                  <div className="text-4xl mb-4">✂️</div>
-                  <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
-                    Fagperson Rollespil
-                  </h3>
-                  <p className="text-gray-300 mb-4">
-                    Træn situationer med frisør, tandlæge og andre fagfolk
-                  </p>
-                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                    Start rollespil
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-              </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quiz Section */}
-      <section className="py-16 bg-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-emerald-500 mb-4">
-              🧠 Test Din Viden
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Hurtige quizzer med personlig feedback - lær af dine svar
-            </p>
-            
-            <Link 
-              href="/quiz" 
-              className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
-            >
-              Start Quiz 🎯
-            </Link>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-emerald-600">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Klar til at gøre en forskel?
+      <section className="px-4 py-16 bg-gradient-to-r from-cyan-600 to-purple-600">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-black mb-6">
+            Klar til at revolutionere din tilgang?
           </h2>
-          <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
-            Bliv en del af CDT-fællesskabet og få adgang til værktøjer der virkelig gør en forskel i børns liv.
+          <p className="text-xl mb-8 text-cyan-100">
+            Bliv en del af fremtiden for støtte til børn med særlige behov
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/kontakt?plan=pro" 
-              className="inline-block bg-white text-emerald-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
-            >
-              Start din gratis prøveperiode
-            </Link>
-            <Link 
-              href="/features" 
-              className="inline-block bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-emerald-600 transition-all"
-            >
-              Se alle features
-            </Link>
-          </div>
+          
+          <a 
+            href="/platform"
+            className="inline-block bg-white text-purple-600 font-black py-6 px-12 rounded-2xl text-xl md:text-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-white/25"
+          >
+            Start din rejse med Heidi! 🚀
+          </a>
         </div>
       </section>
     </div>

@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function QRDemo() {
   const [selectedRole, setSelectedRole] = useState<string>('');
@@ -339,55 +340,91 @@ export default function QRDemo() {
                   </div>
                 </div>
 
-                {/* Two buttons side by side */}
-                <div className="flex gap-3">
-                  <a
-                    href="/demo/heidi"
-                    className="flex-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-colors text-sm text-center"
-                  >
-                    Start Demo på Mobil
-                  </a>
-                  <button
-                    onClick={handleOptimalSolution}
-                    className="flex-1 px-4 py-2 bg-emerald-700/60 hover:bg-emerald-600 text-emerald-100 font-medium rounded-lg transition-colors text-sm"
-                  >
-                    Se Optimal Løsning
-                  </button>
-                </div>
+                {/* Three demo buttons */}
+<div className="grid grid-cols-1 gap-3">
+  <a href="/demo/test?role=parent" className="px-4 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-colors text-sm text-center">
+    👨‍👩‍👧 Start Forælder Demo
+  </a>
+  <a href="/demo/test?role=teacher" className="px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors text-sm text-center">
+    🎓 Start Lærer Demo
+  </a>
+  <a href="/demo/test?role=specialist" className="px-4 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-colors text-sm text-center">
+    ✂️ Start Specialist Demo
+  </a>
+</div>
               </div>
             </div>
 
-            {/* Role Selection */}
-            <div className="border-t border-emerald-600/30 pt-6">
-              <h3 className="text-xl font-semibold text-emerald-100 mb-6 text-center">Vælg din rolle</h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {[
-                  { id: 'teacher', name: 'Lærer', icon: '👩‍🏫', desc: 'Klasselærer eller fagpersonale', role: 'teacher' },
-                  { id: 'parent', name: 'Forælder', icon: '👨‍👩‍👧', desc: 'Forælder til barnet', role: 'parent' },
-                  { id: 'specialist', name: 'Specialist', icon: '👩‍⚕️', desc: 'Psykolog, terapeut', role: 'specialist' }
-                ].map((role) => (
-                  <a 
-                    key={role.id} 
-                    href={`/demo/heidi?role=${role.role}`}
-                    className="cursor-pointer group block"
-                  >
-                    <div className="p-6 rounded-lg border-2 border-emerald-600/50 hover:border-emerald-500 
-                                    bg-emerald-800/30 hover:bg-emerald-700/40 transition-all duration-300 
-                                    transform hover:scale-105 backdrop-blur-sm">
-                      <div className="text-center">
-                        <span className="text-4xl mb-4 block">{role.icon}</span>
-                        <h4 className="text-xl font-semibold text-emerald-100 mb-2">{role.name}</h4>
-                        <p className="text-emerald-200/70 text-sm">{role.desc}</p>
-                      </div>
-                    </div>
-                  </a>
-                ))}
+            {/* Rollespil sektion inde i QR Demo */}
+            <div className="mt-16 pt-12 border-t border-gray-700">
+              <h3 className="text-2xl md:text-3xl font-bold text-center text-emerald-500 mb-3">
+                🎭 Rollespil
+              </h3>
+              <p className="text-lg text-gray-300 text-center mb-8 max-w-2xl mx-auto">
+                Forstå hvordan det du siger modtages
+              </p>
+            
+              <div className="grid md:grid-cols-3 gap-6">
+                {/* Forælder Rollespil */}
+                <Link href="/rollespil?type=parent" className="group">
+                  <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-emerald-500">
+                    <div className="text-4xl mb-4">👨‍👩‍👧</div>
+                    <h3 className="text-xl font-bold text-emerald-400 mb-2 group-hover:text-emerald-300 transition-colors">
+                      Forælder Rollespil
+                    </h3>
+                    <p className="text-gray-300 mb-4">
+                      "Skærm-tid meltdown" - Oplev hvordan dine ord påvirker dit barn
+                    </p>
+                    <span className="text-emerald-500 font-semibold flex items-center gap-1">
+                      Start rollespil
+                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
+
+                {/* Lærer Rollespil - Kommer snart */}
+                <div className="group cursor-not-allowed opacity-60">
+                  <div className="bg-gray-800 rounded-xl p-6 h-full border-2 border-gray-700">
+                    <div className="text-4xl mb-4">👩‍🏫</div>
+                    <h3 className="text-xl font-bold text-gray-400 mb-2">
+                      Lærer Rollespil
+                    </h3>
+                    <p className="text-gray-400 mb-4">
+                      Øv kommunikation mellem lærer, barn og forældre
+                    </p>
+                    <span className="text-gray-500 font-semibold flex items-center gap-1">
+                      Kommer snart
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Fagperson Rollespil - Kommer snart */}
+                <div className="group cursor-not-allowed opacity-60">
+                  <div className="bg-gray-800 rounded-xl p-6 h-full border-2 border-gray-700">
+                    <div className="text-4xl mb-4">✂️</div>
+                    <h3 className="text-xl font-bold text-gray-400 mb-2">
+                      Fagperson Rollespil
+                    </h3>
+                    <p className="text-gray-400 mb-4">
+                      Træn situationer med frisør, tandlæge og andre fagfolk
+                    </p>
+                    <span className="text-gray-500 font-semibold flex items-center gap-1">
+                      Kommer snart
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   );
