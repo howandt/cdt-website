@@ -355,8 +355,6 @@ export default function QRDemo() {
               </div>
             </div>
 
-            /* Erstat denne sektion i QRDemo.tsx (omkring linje 285-340) */
-
             {/* Rollespil sektion inde i QR Demo */}
             <div className="mt-16 pt-12 border-t border-gray-700">
               <h3 className="text-2xl md:text-3xl font-bold text-center text-emerald-500 mb-3">
