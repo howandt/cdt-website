@@ -51,7 +51,7 @@ export default function Home() {
               href="/platform"
               className="inline-block bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-black py-6 px-12 rounded-2xl text-xl md:text-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-purple-500/25"
             >
-              Oplev den levende fagbog nu! →
+              KLIK HER OG TEST FAGBOGEN! →
             </a>
           </div>
 
