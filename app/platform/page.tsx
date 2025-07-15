@@ -10,7 +10,7 @@ export default function HomePage() {
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-emerald-500 mb-6">
-            CDT Platform
+            CDT Interaktiv Levende Fagbog
           </h1>
           <p className="text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
   Intelligent træningsplatform for professionelle og forældre der arbejder med børn med særlige behov
