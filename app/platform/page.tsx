@@ -343,7 +343,7 @@ export default function HomePage() {
                 <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-red-500">
                   <div className="text-4xl mb-4">💔</div>
                   <h3 className="text-xl font-bold text-red-400 mb-2 group-hover:text-red-300 transition-colors">
-                    Når I Skændes
+                    Når I Skændes (Klik Knap)
                   </h3>
                   <p className="text-gray-300 mb-4">
                     "Hvorfor råber mor og far ad hinanden?" - Mærk barnets angst og hjælpeløshed
@@ -376,7 +376,7 @@ export default function HomePage() {
                 <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-yellow-500">
                   <div className="text-4xl mb-4">😰</div>
                   <h3 className="text-xl font-bold text-yellow-400 mb-2 group-hover:text-yellow-300 transition-colors">
-                    Når Du Bliver Sur
+                    Når Du Bliver Sur (Klik Knap)
                   </h3>
                   <p className="text-gray-300 mb-4">
                     "Jeg gør altid noget forkert" - Føl barnets selvbebrejdelse og forvirring
@@ -409,7 +409,7 @@ export default function HomePage() {
                 <div className="bg-gray-800 rounded-xl p-6 h-full hover:bg-gray-700 transition-all border-2 border-transparent hover:border-purple-500">
                   <div className="text-4xl mb-4">🤐</div>
                   <h3 className="text-xl font-bold text-purple-400 mb-2 group-hover:text-purple-300 transition-colors">
-                    Når Du Kommanderer
+                    Når Du Kommanderer (Klik Knap)
                   </h3>
                   <p className="text-gray-300 mb-4">
                     "Jeg lukker bare ned" - Oplev hvordan barnet trækker sig indad og giver op
