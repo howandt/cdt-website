@@ -161,7 +161,7 @@ export default function Home() {
             href="/platform"
             className="inline-block bg-white text-purple-600 font-black py-6 px-12 rounded-2xl text-xl md:text-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-white/25"
           >
-            KLIK HER: TEST ER REJSE MED HEIDI! 🚀
+            KLIK HER: OPLEV HVORDAN COACH HEIDI ARBEJDER! 🚀
           </a>
         </div>
       </section>
